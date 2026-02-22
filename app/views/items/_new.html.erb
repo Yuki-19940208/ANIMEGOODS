@@ -1,0 +1,17 @@
+<%# 商品投稿フォームパーシャル %>
+<div class="ag-form-card">
+  <p class="ag-form-card__title">📝 レビューを投稿</p>
+  <%= form_with model: item do |f| %>
+    <div class="ag-form-group">
+      <%= f.label :title, "商品名" %>
+      <%= f.text_field :title, class: "form-control", placeholder: "商品名を入力..." %>
+    </div>
+    <div class="ag-form-group">
+      <%= f.label :body, "感想・レビュー" %>
+      <%= f.text_area :body, class: "form-control", placeholder: "感想を書いてみましょう...", rows: 4 %>
+    </div>
+    <div class="ag-form-group" style="margin-bottom: 0;">
+      <%= f.submit '✨ 投稿する', class: "ag-btn ag-btn--primary" %>
+    </div>
+  <% end %>
+</div>

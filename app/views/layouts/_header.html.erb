@@ -1,0 +1,49 @@
+<nav class="ag-navbar">
+  <a class="ag-navbar__brand" href="/">🎌 アニメグッズ</a>
+
+  <ul class="ag-navbar__links">
+    <% if user_signed_in? %>
+      <li>
+        <%= link_to user_path(current_user.id), class: 'ag-navbar__link' do %>
+          🏠 マイページ
+        <% end %>
+      </li>
+      <li>
+        <%= link_to users_path, class: 'ag-navbar__link' do %>
+          👥 ユーザー
+        <% end %>
+      </li>
+      <li>
+        <%= link_to items_path, class: 'ag-navbar__link' do %>
+          🎁 商品
+        <% end %>
+      </li>
+      <li>
+        <%= link_to destroy_user_session_path, method: :delete, class: "ag-navbar__link" do %>
+          🚪 ログアウト
+        <% end %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to root_path, class: 'ag-navbar__link' do %>
+          🏠 ホーム
+        <% end %>
+      </li>
+      <li>
+        <%= link_to about_path, class: 'ag-navbar__link' do %>
+          ℹ このサイトについて
+        <% end %>
+      </li>
+      <li>
+        <%= link_to new_user_registration_path, class: 'ag-navbar__link' do %>
+          ✨ 新規登録
+        <% end %>
+      </li>
+      <li>
+        <%= link_to new_user_session_path, class: 'ag-navbar__btn' do %>
+          🔑 ログイン
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</nav>

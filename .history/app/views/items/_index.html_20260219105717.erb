@@ -1,0 +1,21 @@
+<%# 商品一覧パーシャル %>
+<% items.each do |item| %>
+  <div class="ag-item-card">
+    <%= link_to user_path(item.user_id) do %>
+      <%= image_tag item.user.get_profile_image(50, 50), class: "ag-item-card__avatar" %>
+    <% end %>
+    <div class="ag-item-card__content">
+      <div class="ag-item-card__title">
+        <%= link_to item_path(item.id) do %>
+          🎁 <%= item.title %>
+        <% end %>
+      </div>
+      <p class="ag-item-card__body"><%= item.body %></p>
+      <div class="ag-item-card__meta">
+        <span>👤 <%= item.user.name %></span>
+      </div>
+    </div>
+    <<%= link_to "詳細", item_path(item.id), class: "ag-btn ag-btn--outline ag-btn--sm", style: "align-self: center; flex-shrink: 0;" %>
+    <%= link_to "🗑 削除", item_path(item.id), method: :delete, class: "ag-btn ag-btn--danger ag-btn--sm", "data-confirm" => "本当に削除しますか？" %>
+    </div>
+<% end %>

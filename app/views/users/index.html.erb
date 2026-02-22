@@ -1,0 +1,27 @@
+<%# ユーザー一覧ページ %>
+<div class="ag-container">
+  <div class="ag-layout">
+    <%# サイドバー %>
+    <div class="ag-sidebar">
+      <%= render 'users/info', user: @user %>
+      <%= render 'items/new', item: @item %>
+    </div>
+
+    <%# ユーザー一覧 %>
+    <div>
+      <div class="ag-page-header">
+        <h2>👥 ユーザー一覧</h2>
+        <p>登録しているユーザーの一覧です</p>
+      </div>
+      <div class="ag-users-grid">
+        <% @users.each do |user| %>
+          <div class="ag-user-list-card">
+            <%= image_tag user.get_profile_image(72, 72) %>
+            <p class="ag-user-list-card__name"><%= user.name %></p>
+            <%= link_to "プロフィールを見る", user_path(user.id), class: "ag-btn ag-btn--outline ag-btn--sm" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

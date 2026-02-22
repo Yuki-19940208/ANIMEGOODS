@@ -1,0 +1,35 @@
+<%# 商品詳細ページ %>
+<div class="ag-container">
+  <div class="ag-layout">
+    <%# サイドバー %>
+    <div class="ag-sidebar">
+      <%= render 'users/info', user: @user %>
+      <%= render 'items/new', item: Item.new %>
+    </div>
+
+    <%# 商品詳細 %>
+    <div>
+      <div class="ag-detail-card">
+        <div class="ag-detail-card__header">
+          <%= link_to user_path(@user) do %>
+            <%= image_tag @user.get_profile_image(56, 56), class: "ag-detail-card__avatar" %>
+          <% end %>
+          <div>
+            <p class="ag-detail-card__user-name">👤 <%= @user.name %></p>
+          </div>
+        </div>
+
+        <h2 class="ag-detail-card__title">🎁 <%= @item.title %></h2>
+        <p class="ag-detail-card__body"><%= @item.body %></p>
+
+        <div class="ag-detail-card__actions">
+          <% if @item.user == current_user %>
+            <%= link_to "✏ 編集する", edit_item_path(@item), class: "ag-btn ag-btn--outline ag-btn--sm" %>
+            <%= link_to "🗑 削除する", item_path(@item), method: :delete, class: "ag-btn ag-btn--danger ag-btn--sm", "data-confirm" => "本当に削除しますか？" %>
+          <% end %>
+          <%= link_to "← 一覧に戻る", items_path, class: "ag-btn ag-btn--outline ag-btn--sm" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<%# ユーザー詳細（マイページ） %>
+<div class="ag-container">
+  <div class="ag-layout">
+    <%# サイドバー %>
+    <div class="ag-sidebar">
+      <%= render 'info', user: @user %>
+      <%= render 'items/new', item: @item %>
+    </div>
+
+    <%# 投稿した商品一覧 %>
+    <div>
+      <div class="ag-page-header">
+        <h2>🎁 投稿したレビュー</h2>
+        <p><%= @user.name %>さんのレビュー一覧</p>
+      </div>
+      <div class="ag-items-grid">
+        <%= render 'items/index', items: @items %>
+      </div>
+    </div>
+  </div>
+</div>

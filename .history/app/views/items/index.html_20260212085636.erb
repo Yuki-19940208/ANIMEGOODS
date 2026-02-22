@@ -1,0 +1,16 @@
+<h2>New item</h2>
+<%= form_with model: @item do |f| %>
+  <div>
+    <%= f.label : %>
+    <%= f.text_field : %>
+  </div>
+
+  <div>
+    <%= f.label :opinion %>
+    <%= f.text_area :body %>
+  </div>
+
+  <div>
+    <%= f.submit 'Create Item' %>
+  </div>
+<% end %>

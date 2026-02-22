@@ -1,0 +1,7 @@
+<p>Hello <%= @ema %>!</p>
+
+<% if @resource.try(:unconfirmed_ema?) %>
+  <p>We're contacting you to notify you that your ema is being changed to <%= @resource.unconfirmed_ema %>.</p>
+<% else %>
+  <p>We're contacting you to notify you that your ema has been changed to <%= @resource.ema %>.</p>
+<% end %>

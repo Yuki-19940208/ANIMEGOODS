@@ -1,0 +1,7 @@
+<p>Hello <%= @ %>!</p>
+
+<% if @resource.try(:unconfirmed_?) %>
+  <p>We're contacting you to notify you that your  is being changed to <%= @resource.unconfirmed_ %>.</p>
+<% else %>
+  <p>We're contacting you to notify you that your  has been changed to <%= @resource. %>.</p>
+<% end %>

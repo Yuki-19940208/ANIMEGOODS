@@ -1,0 +1,74 @@
+<div>
+  <div>
+    <div>
+      <h2>ユーザー</h2>
+      <%= image_tag @user.get_profile_image(100,100) %>
+      <table>
+        <tbody>
+          <tr></tr>
+          <tr>
+            <th>名前</th>
+            <th><%= @user.name %></th>
+          </tr>
+          <tr>
+            <th>自己紹介</th>
+            <th><%= @user.introduction %></th>
+          </tr>
+        </tbody>
+      </table>
+
+      <div>
+        <%= link_to edit_user_path(@user) do %>
+          <i class="fas fa-user-cog"></i>
+        <% end %>
+      </div>
+
+      <h2>商品</h2>
+      <%= form_with model: @item do |f| %>
+        <div>
+          <%= f.label :商品%>
+          <%= f.text_field :title %>
+        </div>
+
+        <div>
+          <%= f.label :感想 %>
+          <%= f.text_area :body %>
+        </div>
+
+        <div>
+          <%= f.submit 'Create Item' %>
+        </div>
+      <% end %>
+    </div>
+
+    <div>
+      <h2>商品一覧</h2>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>商品</th>
+            <th>感想</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @items.each do |item| %>
+            <tr>
+              <td>
+                <%= link_to user_path(item.user_id) do %>
+                  <%= image_tag item.user.get_profile_image(80,80) %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to book_path(book.id) do %>
+                  <%= book.title %>
+                <% end %>
+              </td>
+              <td><%= book.body %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

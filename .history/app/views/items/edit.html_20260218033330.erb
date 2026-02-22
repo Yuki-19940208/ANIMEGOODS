@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+
+      <h1>Editing ite</h1>
+      
+      <%= render 'layouts/error', obj: @ite %>
+      
+      <%= form_with model: @ite, mothod: :patch do |f| %>
+        <div class="form-group">
+          <%= f.label :title %>
+          <%= f.text_field :title,class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :opinion %>
+          <%= f.text_area :body, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Update ite", class: "btn btn-success" %>
+        </div>
+      <% end %>
+      
+      <%= link_to "Show", ite_path(@ite) %>
+      
+      <%= link_to "Back", ites_path %>
+    </div>
+  </div>
+</div>

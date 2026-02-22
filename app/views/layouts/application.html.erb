@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>アニメグッズ レビュー</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="アニメグッズに特化したレビュー投稿・閲覧プラットフォーム">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'layouts/header' %>
+
+    <% if flash[:notice].present? %>
+      <div class="ag-flash">
+        <div class="ag-flash__inner">
+          ✓ <%= flash[:notice] %>
+        </div>
+      </div>
+    <% end %>
+    <% if flash[:alert].present? %>
+      <div class="ag-flash">
+        <div class="ag-flash__inner ag-flash__inner--alert">
+          ⚠ <%= flash[:alert] %>
+        </div>
+      </div>
+    <% end %>
+
+    <%= yield %>
+
+    <footer class="ag-footer">
+      <p>© 2026 アニメグッズ レビュー. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

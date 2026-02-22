@@ -1,0 +1,24 @@
+<div>
+  <div>
+    <div>
+      <h1></h1>
+      <%= form_with model: @item, method: :patch do |f| %>
+        <div>
+          <%= f.label :title %>
+          <%= f.text_field :title %>
+        </div>
+        <div>
+          <%= f.label :opinion %>
+          <%= f.text_area :body %>
+        </div>
+        <div>
+          <%= f.submit "Update Item" %>
+        </div>
+      <% end %>
+
+      <%= link_to "Show", item_path(@item) %>
+      |
+      <%= link_to "Back", items_path %>
+    </div>
+  </div>
+</div>

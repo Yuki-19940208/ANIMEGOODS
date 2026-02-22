@@ -1,0 +1,40 @@
+#投稿機能
+<h2>New item</h2>
+<%= form_with model: @new_item do |f| %>
+  <div>
+    <%= f.label :商品 %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :感想 %>
+    <%= f.text_area :body %>
+  </div>
+  <div>
+    <%= f.submit 'Create Item' %>
+  </div>
+<% end %>
+
+#詳細画面
+<div>
+  <h2>Item detail</h2>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <%= link_to user_path(@user) do %>
+            <%= image_tag @user.get_profile_image(80,80) %><br>
+            <%= @user.name %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to book_path(@book) do %>
+            <%= @book.title %>
+          <% end %>
+        </td>
+        <td>
+          <%= @book.body %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

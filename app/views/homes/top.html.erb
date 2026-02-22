@@ -1,0 +1,47 @@
+<%# トップページ — ヒーロー + 特徴セクション %>
+
+<section class="ag-hero">
+  <div>
+    <p style="color: #a0a0c0; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;">🎌 Anime Goods Review Platform</p>
+    <h1 class="ag-hero__title">
+      アニメグッズの<br>
+      <span class="gradient-text">レビューをシェア</span>しよう
+    </h1>
+    <p class="ag-hero__sub">
+      持っているアニメグッズのレビューを投稿・閲覧できる<br>
+      ファンのためのコミュニティプラットフォーム
+    </p>
+
+    <div class="ag-hero__actions">
+      <% if user_signed_in? %>
+        <%= link_to "🎁 商品一覧を見る", items_path, class: "ag-btn ag-btn--primary" %>
+        <%= link_to "👥 ユーザー一覧", users_path, class: "ag-btn ag-btn--outline" %>
+        <%= link_to "🏠 マイページ", user_path(current_user), class: "ag-btn ag-btn--secondary" %>
+      <% else %>
+        <%= link_to "✨ 無料で始める", new_user_registration_path, class: "ag-btn ag-btn--primary" %>
+        <%= link_to "🔑 ログイン", new_user_session_path, class: "ag-btn ag-btn--outline" %>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section class="ag-features">
+  <h2 class="ag-section-title">このサイトで<span>できること</span></h2>
+  <div class="ag-features__grid">
+    <div class="ag-feature-card">
+      <div class="ag-feature-card__icon">📝</div>
+      <h3>レビューを投稿</h3>
+      <p>持っているアニメグッズの感想や評価を自由に投稿できます</p>
+    </div>
+    <div class="ag-feature-card">
+      <div class="ag-feature-card__icon">🔍</div>
+      <h3>レビューを検索</h3>
+      <p>気になるグッズのレビューを他のユーザーの投稿から探せます</p>
+    </div>
+    <div class="ag-feature-card">
+      <div class="ag-feature-card__icon">👥</div>
+      <h3>コミュニティ</h3>
+      <p>同じ趣味を持つファン同士でつながり、情報をシェアしましょう</p>
+    </div>
+  </div>
+</section>

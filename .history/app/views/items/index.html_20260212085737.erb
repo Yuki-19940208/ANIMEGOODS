@@ -1,0 +1,16 @@
+<h2>New item</h2>
+<%= form_with model: @item do |f| %>
+  <div>
+    <%= f.label :商品 %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :レビュー %>
+    <%= f.text_area :body %>
+  </div>
+
+  <div>
+    <%= f.submit 'Create Item' %>
+  </div>
+<% end %>

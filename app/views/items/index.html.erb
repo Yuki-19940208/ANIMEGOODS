@@ -1,0 +1,22 @@
+<%# 商品一覧ページ %>
+<div class="ag-container">
+  <div class="ag-layout">
+    <%# サイドバー %>
+    <div class="ag-sidebar">
+      <%= render 'users/info', user: @user %>
+      <%= render 'items/new', item: @item %>
+    </div>
+
+    <%# メインコンテンツ %>
+    <div>
+      <%= render 'layouts/error', obj: @item %>
+      <div class="ag-page-header">
+        <h2>🎁 商品レビュー一覧</h2>
+        <p>みんなが投稿したアニメグッズのレビュー</p>
+      </div>
+      <div class="ag-items-grid">
+        <%= render 'index', items: @items %>
+      </div>
+    </div>
+  </div>
+</div>
