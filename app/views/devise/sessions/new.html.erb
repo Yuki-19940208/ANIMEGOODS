@@ -1,0 +1,34 @@
+<%# ログインページ %>
+<div class="ag-auth-wrap">
+  <div class="ag-auth-card">
+    <h2 class="ag-auth-card__title">🔑 ログイン</h2>
+    <p class="ag-auth-card__sub">アカウントにサインインしてください</p>
+
+    <%= form_with model: @user, url: user_session_path do |f| %>
+      <div class="ag-form-group">
+        <%= f.label :name, "ユーザー名" %>
+        <%= f.text_field :name, placeholder: "ユーザー名" %>
+      </div>
+
+      <div class="ag-form-group">
+        <%= f.label :password, "パスワード" %>
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.25rem; font-size: 0.88rem; color: #9090b0;">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me, "ログイン状態を保持する" %>
+        </div>
+      <% end %>
+
+      <div style="margin-top: 1rem;">
+        <%= f.submit "ログイン", class: "ag-btn ag-btn--primary", style: "width: 100%; justify-content: center;" %>
+      </div>
+    <% end %>
+
+    <div style="margin-top: 1.5rem; text-align: center; font-size: 0.88rem;">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>
